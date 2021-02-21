@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>카운터 예제1</title>
+</head>
+<body>
+    <style>
+        .number, .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .btn {
+            margin: 5px;
+            font-size: large;
+            border : gray 1px solid;
+        }
+
+    </style>
+
+    <h2 class="number">0</h2>
+
+    <div class="container">
+        <button class="btn increase"> +1 </button>
+        <button class="btn decrease"> -1 </button>
+    </div>
+
+    <script>
+        var content = document.querySelector(".container");
+        var num = document.querySelector(".number");
+        var number;
+
+        (function(){
+            content.addEventListener("click",function(e){
+                console.log(e.target);
+                var classes = e.target.classList;
+
+                console.log(classes);
+
+                if(classes.contains("increase") === true) {
+
+                    number = parseInt(num.innerText,10);
+                    var incNum = number + 1;
+                    num.innerText = incNum;
+                }
+
+                if(classes.contains("decrease")=== true) {
+                    number = parseInt(num.innerText,10);
+                    var decNum = number - 1;
+                    num.innerText = decNum;
+                }
+            },false)
+        })();
+
+    </script>
+</body>
+</html>
